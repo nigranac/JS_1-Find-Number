@@ -1,0 +1,24 @@
+body {
+    background-image: url("https://www.funbrain.com/assets/img/content-cards/F2qRmLhRnmebc8jJAUjr_GuessTheNumber%403x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2 {
+    text-align: center;
+    border: 2px solid red;
+    margin: 60px 0;
+    font-size: 30px;
+}
+
+#check {
+    text-align: center;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
