@@ -1,24 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans);
 body {
-    background-image: url("https://www.funbrain.com/assets/img/content-cards/F2qRmLhRnmebc8jJAUjr_GuessTheNumber%403x.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+  background: linear-gradient(to right, #9796f0, #fbc7d4);
+  color: #333;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 100px;
 
-h2 {
-    text-align: center;
-    border: 2px solid red;
-    margin: 60px 0;
-    font-size: 30px;
 }
-
-#check {
-    text-align: center;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  justify-content: center;
+  align-content: center;
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  gap: 1px 1px;
+  grid-template-areas:
+    "result result result result"
+    "AC AC DEL div"
+    "A1 A2 A3 multip"
+    "A4 A5 A6 add"
+    "A7 A8 A9 subt"
+    "dot A0 equals equals";
 }
-input[type='number'] {
-    -moz-appearance:textfield;
+#AC {
+  grid-area: AC;
 }
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+#DEL {
+  grid-area: DEL;
+}
+#div {
+  grid-area: div;
+}
+#A1 {
+  grid-area: A1;
+}
+#A2 {
+  grid-area: A2;
+}
+#A3 {
+  grid-area: A3;
+}
+#multip {
+  grid-area: multip;
+}
+#A4 {
+  grid-area: A4;
+}
+#A5 {
+  grid-area: A5;
+}
+#A6 {
+  grid-area: A6;
+}
+#add {
+  grid-area: add;
+}
+#A7 {
+  grid-area: A7;
+}
+#A8 {
+  grid-area: A8;
+}
+#A9 {
+  grid-area: A9;
+}
+#subt {
+  grid-area: subt;
+}
+#dot {
+  grid-area: dot;
+}
+#A0 {
+  grid-area: A0;
+}
+#equals {
+  grid-area: equals;
+}
+.result {
+  grid-area: result;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 40px;
+}
+.first{
+  color: wheat;
+  font-size: 40px;
 }
