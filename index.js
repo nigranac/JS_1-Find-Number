@@ -1,44 +1,59 @@
-var numbers = document.querySelectorAll(".num");
-        for (var i = 0; i < numbers.length; i++) {
-          numbers[i].addEventListener("click", function() {
-            if (this.value == '.') {
-              return;
-            }
-            document.getElementById("result").innerHTML += this.value;
+let guess;
+let count = 0;
+let correctNumber = Math.floor((Math.random() * 20) + 1);
 
-            if (selectedOperator == '') {
-              leftPart += this.value;
-            } else if (selectedOperator != '') {
-              rightPart += this.value;
-            }
+var input = document.getElementById("inputBox");
+input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("check").click(displayResult);
+    }
+});
 
-          }, false);
+
+document.getElementById('check').addEventListener('click',displayResult);
+
+
+
+
+function displayResult(){
+
+
+    count++;
+    document.getElementById('guessNumber').innerHTML  = 'This is your ' + count + '.' + ' try.';
+
+    guess = document.getElementById('inputBox').value;
+
+    if (guess == correctNumber){
+
+        alert('You win! You find at ' + count + '.' + ' try');
+       
+        var play_again = confirm('Do you wanna play again?');
+
+        if (play_again == true){
+            count = 0;
+            correctNumber = Math.floor((Math.random() * 20) + 1);
+            document.getElementById('guessNumber').innerHTML  = '';
+            document.getElementById('result').innerHTML  = '';
+            document.getElementById('inputBox').value = '';
         }
-
-
-        var operators = document.querySelectorAll(".operator");
-        for (var i = 0; i < operators.length; i++) {
-          operators[i].addEventListener("click", function() {
-            if (document.getElementById("result").innerHTML === "") {
-              return;
-            }
-            document.getElementById("result").innerHTML += this.value;
-
-            selectedOperator = this.value;
-          }, false);
+        else{
+            document.getElementById('thanks').innerHTML  = 'Thanks for playing! Hope to see you next time!';
         }
+    }
 
+    else if(guess < correctNumber){
+        document.getElementById('result').innerHTML  = 'Higher please!'; 
+    
+    }
 
+    else if(guess > correctNumber){
+        document.getElementById('result').innerHTML  = 'Lower please!';  
+      
+    }
 
-        document.getElementById("dot").addEventListener("click", function() {
-          if (document.getElementById("result").innerHTML.indexOf('.') != -1) {
-            return;
-          }
+    document.getElementById('inputBox').value = '';
+    document.getElementById('inputBox').focus() = '';
+    document.getElementById('guessNumber').innerHTML  = '';  
 
-          if (document.getElementById("result").innerHTML === "") {
-            output = document.getElementById("result").innerHTML = '0.';
-          } else if (document.getElementById("result").innerHTML === output) {
-            document.getElementById("result").innerHTML = document.getElementById("result").innerHTML + '.';
-          }
-        }, false);
-
+}
